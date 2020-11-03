@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Home Routes
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Store comment routes
@@ -26,6 +27,3 @@ Route::post('/comment/create', 'CommentController@store')->name('comment.store')
 
 //delete comment Routes
 Route::get('/comment/{id}', 'CommentController@destroy')->name('comment.delete');
-
-//replies comment routes
-Route::post('/comment/reply/{id}', 'CommentController@replies')->name('comment.replies');

@@ -27,11 +27,23 @@
         .card-inner{
             margin-left: 4rem;
         }
+        .form_hideshow.d-block{
+            position:fixed;
+            top:55px;
+            left:0;
+            right:0px;
+            z-index:10;
+            background-color:#fff;
+            padding-top:15px;
+        }
+       .d-block ~ .card{
+           margin-top:150px
+       }
     </style>
 </head>
-<body>
+<body style="padding-top: 85px">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -82,7 +94,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

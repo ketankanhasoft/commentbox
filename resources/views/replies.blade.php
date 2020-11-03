@@ -17,12 +17,11 @@
                         </p>
                     </div>
                     <div class="add_subreplies_{{$subcomm->id}} " style="display: none;">
-                        <form role="form" id="addsubcomment_{{$subcomm->id}}" method="POST" action="{{ route('comment.store') }}" enctype="multipart/form-data">   
+                        <form role="form" id="addsubcomment_{{$subcomm->id}}" method="POST" action="{{ route('comment.replies',$subcomm->id)}}" enctype="multipart/form-data">   
                             @csrf
                             <div class="form-group {{ $errors->has('comment') ? 'has-error' : '' }}">
                                 <label>Comment:</label>
                                 <textarea class="form-control" id="comment" name="comment"></textarea>
-                                <input type="hidden" name="parent_id" value="{{ $subcomm->id }}" />
                                 @if ($errors->has('comment'))
                                     <span class="text-red" role="alert">
                                         <strong>{{ $errors->first('comment') }}</strong>
@@ -34,7 +33,6 @@
                             </div>
                         </form>
                     </div>
-                    @include('subcomment', ['comments' => $subcomm->replies])
                 </div>
             </div>
         </div>

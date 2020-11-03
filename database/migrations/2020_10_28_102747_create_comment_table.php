@@ -18,6 +18,8 @@ class CreateCommentTable extends Migration
             $table->bigInteger('parent_id')->default(0);
             $table->text('comment');
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('repliable_id')->unsigned();
+            $table->string('repliable_type')->nullable();
             $table->timestamps();
         });
     }
